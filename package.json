@@ -1,0 +1,21 @@
+{
+  "name": "tau-hackathon-tests",
+  "version": "1.0.0",
+  "description": "Applitools Visual AI Rockstar Hackathon application",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --browser chrome",
+    "cypress": "cypress open",
+    "traditional-V1": "cypress run --browser chrome --env urlSuffix=.html --spec 'cypress/integration/TraditionalTests.js'",
+    "traditional-V2": "cypress run --browser chrome --env urlSuffix=V2.html --spec 'cypress/integration/TraditionalTests.js'",
+    "eyes-V1": "cypress run --browser chrome --env urlSuffix=.html --spec 'cypress/integration/VisualAITests.js'",
+    "eyes-V2": "cypress run --browser chrome --env urlSuffix=V2.html --spec 'cypress/integration/VisualAITests.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@applitools/eyes-cypress": "github:applitools/eyes-cypress",
+    "cypress": "^3.6.1"
+  }
+}
