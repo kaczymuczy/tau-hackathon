@@ -17,9 +17,9 @@ describe('Visual test suite', () => {
 
     describe('Task 2: Data-Driven Test', () => {
         const invalidLoginData = [
-            { username: '', password: '', error: 'Both Username and Password must be present' },
-            { username: 'user', password: '', error: 'Password must be present' },
-            { username: '', password: 'pass123', error: 'Username must be present' }
+            { username: '', password: '' },
+            { username: 'user', password: '' },
+            { username: '', password: 'pass123' }
         ]
 
         beforeEach(() => {
