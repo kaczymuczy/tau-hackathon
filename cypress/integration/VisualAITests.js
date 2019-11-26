@@ -60,13 +60,13 @@ describe('Visual test suite', () => {
     })
 
     describe('Task 4: Canvas Chart Test', () => {
-        it('Expenses chart should display data for incoming years when requested', () => {
+        it.only('Expenses chart should display data for incoming years when requested', () => {
             cy.visit(MainPage.urlPart)
 
             MainPage.showExpensesChart()
             ExpensesChart.addNextYear()
 
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 4: Canvas Chart Test' })
+            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 4: Canvas Chart Test', browser: { width: 1366, height: 768 } })
             cy.eyesCheckWindow()
             cy.eyesClose()
         })
