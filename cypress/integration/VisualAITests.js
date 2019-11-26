@@ -4,15 +4,14 @@ import * as LoginForm from '../component-functions/login-form.js'
 import * as MainPage from '../component-functions/main-page.js'
 import * as TransactionsTable from '../component-functions/transactions-table.js'
 import * as ExpensesChart from '../component-functions/expenses-chart.js'
+import { runEyes } from '../support/utils.js'
 
 describe('Visual test suite', () => {
     describe('Task 1: Login Page UI Elements Test', () => {
         it('Ensure everything looks OK on the Login Page', () => {
             cy.visit(LoginForm.urlPart)
 
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 1: Login Page UI Elements Test' })
-            cy.eyesCheckWindow()
-            cy.eyesClose()
+            runEyes('Task 1: Login Page UI Elements Test')
         })
     })
 
@@ -32,18 +31,14 @@ describe('Visual test suite', () => {
             it(testName, () => {
                 LoginForm.logInWith(testData.username, testData.password)
 
-                cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: `Task 2: Data-Driven Test: ${testName}` })
-                cy.eyesCheckWindow()
-                cy.eyesClose()
+                runEyes(`Task 2: Data-Driven Test: ${testName}`)
             })
         })
 
         it('Submitting the login form with valid credentials should log you in', () => {
             LoginForm.logInWith('username', 'password')
 
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: `Task 2: Data-Driven Test: Submitting the login form with valid credentials should log you in` })
-            cy.eyesCheckWindow()
-            cy.eyesClose()
+            runEyes('Task 2: Data-Driven Test: Submitting the login form with valid credentials should log you in')
         })
     })
 
@@ -52,23 +47,19 @@ describe('Visual test suite', () => {
             cy.visit(MainPage.urlPart)
 
             TransactionsTable.sortTransactionsBy('Amount')
-            
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 3: Table Sort Test' })
-            cy.eyesCheckWindow()
-            cy.eyesClose()
+
+            runEyes('Task 3: Table Sort Test')
         })
     })
 
     describe('Task 4: Canvas Chart Test', () => {
-        it.only('Expenses chart should display data for incoming years when requested', () => {
+        it('Expenses chart should display data for incoming years when requested', () => {
             cy.visit(MainPage.urlPart)
 
             MainPage.showExpensesChart()
             ExpensesChart.addNextYear()
 
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 4: Canvas Chart Test', browser: { width: 1366, height: 768 } })
-            cy.eyesCheckWindow()
-            cy.eyesClose()
+            runEyes('Task 4: Canvas Chart Test')
         })
     })
 
@@ -78,9 +69,7 @@ describe('Visual test suite', () => {
                 qs: { showAd: 'true' }
             })
 
-            cy.eyesOpen({ appName: 'TAU Hackathon', batchName: 'TAU Hackathon', testName: 'Task 5: Dynamic Content Test' })
-            cy.eyesCheckWindow()
-            cy.eyesClose()
+            runEyes('Task 5: Dynamic Content Test')
         })
     })
 })

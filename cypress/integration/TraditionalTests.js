@@ -80,14 +80,12 @@ describe('Traditonal functional test suite', () => {
                     .and('contain', testData.error)
                     .and('have.attr', 'style', 'display: block;')
                 cy.url().should('be.equal', expectedUrl(LoginForm.urlPart))
-
             })
         })
 
         it('Submitting the login form with valid credentials should log you in', () => {
             LoginForm.logInWith('username', 'password')
             cy.url().should('be.equal', expectedUrl(MainPage.urlPart))
-
         })
     })
 
